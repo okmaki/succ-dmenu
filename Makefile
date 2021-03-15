@@ -17,7 +17,7 @@ options:
 .c.o:
 	$(CC) -c $(CFLAGS) $<
 
-config.h: getthemes
+config.h:
 	cp config.def.h $@
 
 $(OBJ): arg.h config.h config.mk drw.h
@@ -60,8 +60,5 @@ uninstall:
 		$(DESTDIR)$(PREFIX)/bin/stest\
 		$(DESTDIR)$(MANPREFIX)/man1/dmenu.1\
 		$(DESTDIR)$(MANPREFIX)/man1/stest.1
-
-getthemes:
-	[ -f themes.h ] || wget https://raw.githubusercontent.com/makidotnet/succ-themes/master/themes.h
 
 .PHONY: all options clean dist install uninstall
